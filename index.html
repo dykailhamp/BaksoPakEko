@@ -624,6 +624,16 @@
   </body>
   <!-- JS -->
     <script>
+
+  // Toggle hamburger menu
+  document.querySelector(".nav-toggle").addEventListener("click", function () {
+    const navLinks = document.querySelector(".nav-links");
+    navLinks.classList.toggle("active");
+
+    // animasi hamburger
+    this.classList.toggle("open");
+  });
+
       const nav = document.querySelector(".navbar-wrapper");
       window.addEventListener("scroll", () => {
         if (window.scrollY > 10) nav.classList.add("scrolled");
