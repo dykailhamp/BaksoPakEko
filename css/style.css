@@ -346,13 +346,15 @@ body {
 }
 
 /* Container section */
+/* =========================
+   PAKET SECTION
+========================= */
 .paket-section {
   background: #fff;
   padding: 80px 0;
-  overflow: visible; /* ✅ jangan batasi tinggi */
+  overflow: visible;
 }
 
-/* Batas layout */
 .paket-container {
   max-width: 1440px;
   padding: 0 120px;
@@ -360,7 +362,6 @@ body {
   box-sizing: border-box;
 }
 
-/* Judul section */
 .paket-title {
   font-family: var(--font-stack);
   font-size: 36px;
@@ -369,14 +370,14 @@ body {
   color: var(--Text-primary);
 }
 
-/* Scroll container */
+/* Scroll container (desktop) */
 .paket-horizontal-scroll {
   display: flex;
   gap: 12px;
   overflow-x: auto;
-  overflow-y: visible; /* ✅ agar shadow atas tidak terpotong */
+  overflow-y: visible;
   padding-bottom: 12px;
-  padding-right: 60px; /* ✅ ruang untuk shadow kanan */
+  padding-right: 60px;
 
   -ms-overflow-style: none;
   scrollbar-width: none;
@@ -385,7 +386,7 @@ body {
   display: none;
 }
 
-/* Card layout */
+/* Card */
 .paket-card {
   display: flex;
   width: 380px;
@@ -400,7 +401,6 @@ body {
   box-sizing: border-box;
 }
 
-/* Info sisi kiri */
 .paket-info {
   flex: 1;
   display: flex;
@@ -437,7 +437,6 @@ body {
   gap: 4px;
 }
 
-/* Harga dan tombol */
 .paket-footer {
   display: flex;
   justify-content: space-between;
@@ -469,7 +468,7 @@ body {
   filter: brightness(1.05);
 }
 
-/* Gambar sisi kanan */
+/* Gambar */
 .paket-image-bg {
   height: 264px;
   flex: 1 0 0;
@@ -478,6 +477,47 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   min-width: 180px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 992px) {
+  .paket-container {
+    padding: 0 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .paket-horizontal-scroll {
+    flex-direction: column; /* Tumpuk vertikal di mobile */
+    overflow-x: hidden;
+    padding-right: 0;
+  }
+
+  .paket-card {
+    width: 100%; /* ambil lebar penuh */
+    flex-direction: column; /* gambar di atas */
+    align-items: flex-start;
+  }
+
+  .paket-image-bg {
+    width: 100%;
+    height: 200px;
+    min-width: unset;
+    margin-bottom: 16px; /* jarak bawah gambar */
+  }
+
+  .paket-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .btn-order {
+    width: 100%; /* tombol full width di mobile */
+    text-align: center;
+  }
 }
 
 .menu-section {
@@ -1153,4 +1193,215 @@ body {
 
 .footer-links a:hover {
   color: var(--Accent);
+}
+
+/* ------------ GLOBAL RESPONSIVE TWEAKS ------------ */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* 1. Navbar mobile (sudah sebagian ada) */
+@media (max-width: 992px) {
+  .navbar {
+    flex-wrap: wrap;
+    padding: 16px 24px;
+  }
+  .nav-toggle {
+    display: block;
+  }
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #fff;
+    flex-direction: column;
+    gap: 0;
+    display: none;
+    border-bottom: 1px solid #e6e6e6;
+    padding: 8px 0;
+    z-index: 10;
+  }
+  .nav-links.active {
+    display: flex;
+  }
+  .btn-signup {
+    display: none;
+  }
+}
+
+/* 2. Hero */
+@media (max-width: 1100px) {
+  .hero-content {
+    flex-direction: column-reverse;
+    height: auto;
+    padding: 60px 40px;
+    gap: 40px;
+  }
+  .hero-title {
+    font-size: 36px;
+    line-height: 44px;
+    text-align: center;
+  }
+  .hero-subtitle {
+    text-align: center;
+    max-width: 100%;
+  }
+  .hero-image-wrapper {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    aspect-ratio: 588 / 729;
+    border-radius: 100px;
+    transform: translateY(0);
+  }
+  .hero-thumbs {
+    justify-content: center;
+  }
+}
+
+/* 3. Paket */
+@media (max-width: 1200px) {
+  .paket-title {
+    text-align: center;
+  }
+}
+@media (max-width: 992px) {
+  .paket-container {
+    padding: 0 24px;
+  }
+  .paket-horizontal-scroll {
+    padding-right: 0;
+  }
+  .paket-card {
+    width: 100%;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .paket-image-bg {
+    width: 100%;
+    height: auto;
+    min-width: unset;
+  }
+  .paket-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+}
+
+/* 4. Menu */
+@media (max-width: 1100px) {
+  .menu-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 768px) {
+  .menu-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .menu-container {
+    padding: 0 24px;
+  }
+}
+
+/* 5. Why Us */
+@media (max-width: 900px) {
+  .why-container {
+    flex-direction: column;
+    padding: 0 40px;
+    gap: 40px;
+  }
+  .why-title {
+    text-align: center;
+  }
+}
+
+/* 6. Gallery */
+@media (max-width: 1100px) {
+  .gallery-container {
+    padding: 0 40px;
+  }
+  .gallery-grid {
+    flex-direction: column;
+    gap: 24px;
+    align-items: stretch;
+  }
+  .column {
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: auto;
+    gap: 16px;
+  }
+  .gallery-item {
+    width: 100%;
+    max-width: 100%;
+  }
+  .gallery-item.tall,
+  .gallery-item.medium,
+  .gallery-item.extra-short {
+    height: 400px;
+  }
+  .gallery-item.short {
+    height: 300px;
+  }
+}
+
+/* 7. Testimoni */
+@media (max-width: 992px) {
+  .testimonial-container {
+    flex-direction: column;
+    padding: 0 24px;
+    gap: 32px;
+  }
+}
+
+/* 8. FAQ */
+@media (max-width: 1100px) {
+  .faq-container {
+    padding: 48px 24px 80px;
+  }
+}
+
+/* 9. CTA */
+@media (max-width: 1100px) {
+  .cta-container {
+    flex-direction: column;
+    padding: 0 24px;
+    gap: 40px;
+    justify-content: center;
+    align-items: center;
+  }
+  .cta-text {
+    width: 100%;
+    align-items: center;
+    text-align: center;
+  }
+  .cta-image {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    margin-left: 0;
+  }
+}
+
+/* 10. Footer */
+@media (max-width: 1100px) {
+  .footer {
+    padding: 40px 24px 20px;
+  }
+  .footer-container {
+    flex-direction: column;
+    gap: 40px;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    gap: 16px;
+  }
+  .footer-links {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
 }
