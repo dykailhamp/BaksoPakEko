@@ -70,8 +70,8 @@ body {
   display: flex;
   gap: 1.5rem;
   flex: 1; /* agar mengambil ruang antara logo dan tombol */
-  justify-content: center;
-  align-items: center;
+  justify-content: right;
+  align-items: right;
 }
 
 .nav-links li a {
@@ -89,7 +89,7 @@ body {
   color: var(--Accent);
 }
 
-/* Sign Up button */
+/* Sign Up button
 .btn-signup {
   background: var(--Accent);
   color: #fff;
@@ -105,7 +105,7 @@ body {
 
 .btn-signup:hover {
   filter: brightness(1.05);
-}
+} */
 
 /* Hamburger (hidden desktop) */
 .nav-toggle {
